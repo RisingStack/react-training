@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { observable, action, decorate } from 'mobx';
+import { observable, action } from 'mobx';
 import { Provider } from 'mobx-react';
 import App from './App';
 

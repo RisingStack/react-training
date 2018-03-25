@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 
 @inject('counter')
-@observable
-export default class App {
+@observer
+export default class App extends Component {
   render() {
     const { counter } = this.props;
     return (
