@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "deploy": "now && now alias"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +18,6 @@
     "express-ws": "^3.0.0"
   },
   "now": {
-    "alias": "react-todos-server"
+    "alias": "todo-dummy-server"
   }
 }
