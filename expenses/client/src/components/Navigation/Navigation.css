@@ -1,0 +1,61 @@
+.topnav {
+  overflow: hidden;
+  width: 100%;
+  background-color: white;
+  color: white;
+  border-bottom: 1px solid silver;
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  padding: 20px 22px;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  border-bottom: 1px solid silver;
+}
+.authentication {
+  float: right !important;
+}
+.selected {
+  background-color: white;
+  color: black !important;
+  border-bottom: 1px solid silver;
+}
+
+.logout-button {
+  border: none;
+  background: inherit;
+}
+.logo-header {
+  
+  background-color: white;
+}
+.logo {
+  float: left;
+  width: 200px;
+  margin: 5px 0 5px 5px;
+}
+
+@media only screen and (max-width: 800px) {
+  .authentication {
+    float: left !important;
+  }
+  .logo {
+    float: left;
+    width: 200px;
+    margin: 5px 0 5px 5px;
+  }
+  .topnav a {
+    float: left;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 17px;
+    font-size: 14px;
+  }
+}

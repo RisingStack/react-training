@@ -1,0 +1,48 @@
+.reg-form {
+  display: block;
+  width: 500px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.reg-input-style {
+  width: 300px;
+  height: 40px;
+  margin: 5px;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.register-btn {
+  padding: 16px 36px;
+  border: 0px;
+  background-color: #40aa94;
+  color: white;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .reg-form {
+    display: block;
+    width: 320px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .reg-input-style {
+    width: 200px;
+    height: 30px;
+    margin: 5px;
+    padding: 0px;
+    font-size: 0.8rem;
+  }
+  
+  .register-btn {
+    padding: 16px 26px;
+    border: 0px;
+    background-color: #40aa94;
+    color: white;
+    cursor: pointer;
+  }
+}
