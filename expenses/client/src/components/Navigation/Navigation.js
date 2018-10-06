@@ -8,12 +8,6 @@ export default class Navigation extends Component {
 
     return (
       <div className="logo-header">
-        <img
-          src="https://resources.risingstack.com/risingstack-logo-2017.svg"
-          alt="logo"
-          className="logo"
-        />
-
         <div className="topnav">
           <NavLink to="/" exact activeClassName="selected">
             Home

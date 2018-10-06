@@ -4,9 +4,9 @@ import { compose } from 'recompose'
 import LoadingBar from 'react-redux-loading-bar'
 import { connect } from 'react-redux'
 import Navigation from './components/Navigation'
-import MainPage from './pages/Main'
 import LoginPage from './pages/Login'
 import RegisterPage from './pages/Register'
+import ExpensesPage from './pages/Expenses'
 import NotFound from './pages/NotFound'
 import './App.css'
 
@@ -18,7 +18,7 @@ function App({ user }) {
       <div className="wrapper">
         {user ? (
           <Switch>
-            <Route exact path="/" component={MainPage} />
+            <Route exact path="/" component={ExpensesPage} />
             <Route component={NotFound} />
           </Switch>
         ) : (

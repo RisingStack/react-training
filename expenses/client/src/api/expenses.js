@@ -1,7 +1,7 @@
 import api from './api'
 
-export async function get() {
-  const { data } = await api.get('/expenses')
+export async function get(id) {
+  const { data } = await api.get(`/expenses/${id}`)
   return data
 }
 

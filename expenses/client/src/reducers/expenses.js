@@ -1,31 +1,9 @@
-import {
-  GET_EXPENSES_PENDING,
-  GET_EXPENSES_SUCCESS,
-  GET_EXPENSES_ERROR
-} from '../actions/getExpenses'
+import { LIST_EXPENSES } from '../actions/expenses'
 
-const expensesInitialState = {
-  error: null,
-  data: []
-}
-
-export const expensesReducer = (state = expensesInitialState, action) => {
-  switch (action.type) {
-    case GET_EXPENSES_PENDING:
-      return {
-        ...state
-      }
-    case GET_EXPENSES_SUCCESS:
-      return {
-        ...state,
-        error: null,
-        data: action.payload.data
-      }
-    case GET_EXPENSES_ERROR:
-      return {
-        ...state,
-        error: action.payload
-      }
+export default function expenses(state = [], { type, expenses }) {
+  switch (type) {
+    case LIST_EXPENSES:
+      return expenses
     default:
       return state
   }
