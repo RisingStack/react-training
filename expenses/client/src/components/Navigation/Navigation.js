@@ -28,7 +28,6 @@ export default class Navigation extends Component {
             Expenses SR
           </NavLink>
           <button onClick={logout}>Logout</button>
-          )}
         </div>
       </div>
     )

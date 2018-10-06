@@ -7,7 +7,7 @@ export default class RegisterPage extends Component {
   register = async values => {
     const { register, history } = this.props
     await register(values)
-    history.push('/')
+    history.replace('/')
   }
 
   render() {
