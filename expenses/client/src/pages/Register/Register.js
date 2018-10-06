@@ -4,15 +4,19 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import './Register.css'
 
 export default class RegisterPage extends Component {
-  render() {
-    const { register } = this.props
+  register = async values => {
+    const { register, history } = this.props
+    await register(values)
+    history.push('/')
+  }
 
+  render() {
     return (
       <div className="reg-form">
         <h2>Register Page</h2>
         <Formik
           initialValues={{ email: '', password: '', name: '' }}
-          onSubmit={register}
+          onSubmit={this.register}
         >
           {() => (
             <Form>

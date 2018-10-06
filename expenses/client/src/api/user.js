@@ -15,3 +15,8 @@ export async function register(body) {
 export function logout() {
   unauthorize()
 }
+
+export async function getMe() {
+  const { data } = await api.get('/me')
+  return data
+}

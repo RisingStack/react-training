@@ -18,7 +18,7 @@ function authorize(token) {
 
 function unauthorize() {
   delete api.defaults.headers.Authorization
-  localStorage.remvoveItem(TOKEN_KEY)
+  localStorage.removeItem(TOKEN_KEY)
 }
 
 authorize(localStorage.getItem(TOKEN_KEY))
