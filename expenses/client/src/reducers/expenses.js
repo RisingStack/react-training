@@ -1,4 +1,8 @@
-import { GET_EXPENSES_PENDING, GET_EXPENSES_SUCCESS, GET_EXPENSES_ERROR } from '../actions/getExpenses'
+import {
+  GET_EXPENSES_PENDING,
+  GET_EXPENSES_SUCCESS,
+  GET_EXPENSES_ERROR
+} from '../actions/getExpenses'
 
 const expensesInitialState = {
   error: null,
@@ -9,7 +13,7 @@ export const expensesReducer = (state = expensesInitialState, action) => {
   switch (action.type) {
     case GET_EXPENSES_PENDING:
       return {
-        ...state        
+        ...state
       }
     case GET_EXPENSES_SUCCESS:
       return {
@@ -20,8 +24,7 @@ export const expensesReducer = (state = expensesInitialState, action) => {
     case GET_EXPENSES_ERROR:
       return {
         ...state,
-        error: action.payload,
-        
+        error: action.payload
       }
     default:
       return state

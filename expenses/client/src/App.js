@@ -1,42 +1,38 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React, { Fragment } from 'react'
+import { Route, Switch, Link, withRouter } from 'react-router-dom'
+import { compose } from 'recompose'
 import LoadingBar from 'react-redux-loading-bar'
-
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import { connect } from 'react-redux'
 import Navigation from './components/Navigation/Navigation'
-import MainPage from './components/MainPage/MainPage'
-import LoginContainer from './components/Login/LoginContainer'
-import RegisterContainer from './components/Register/RegisterContainer'
-import ExpenseTableContainer from './components/ExpenseTable/ExpenseTableContainer'
-import ExpenseTableContainerSR from './components/ExpenseTable/ExpenseTableContainerSR'
-import ProtectedPage from './components/ProtectedPage/ProtectedPage'
-import NotFound from './components/NotFound/NotFound'
+import MainPage from './pages/Main'
+import LoginPage from './pages/Login'
+import RegisterPage from './pages/Register'
+import NotFound from './pages/NotFound'
 import './App.css'
 
-const App = () => (
-  <div>
-    <Navigation />
-    <LoadingBar />
-    <div className="wrapper">
-      <Switch>
-        <Route exact path="/" component={MainPage} />
-        <Route exact path="/login" component={LoginContainer} />
-        <Route exact path="/register" component={RegisterContainer} />
-        <ProtectedRoute exact path="/protected" component={ProtectedPage} />
-        <ProtectedRoute
-          exact
-          path="/expenses"
-          component={ExpenseTableContainer}
-        />
-        <ProtectedRoute
-          exact
-          path="/expenses-sr"
-          component={ExpenseTableContainerSR}
-        />
-        <Route component={NotFound} />
-      </Switch>
+function App({ user }) {
+  return (
+    <div>
+      <LoadingBar />
+      {user && <Navigation />}
+      <div className="wrapper">
+        {user ? (
+          <Switch>
+            <Route exact path="/" component={MainPage} />
+            <Route component={NotFound} />
+          </Switch>
+        ) : (
+          <Switch>
+            <Route exact path="/register" component={RegisterPage} />
+            <Route path="/" component={LoginPage} />
+          </Switch>
+        )}
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
-export default App
+export default compose(
+  withRouter,
+  connect(state => ({ user: state.user }))
+)(App)
