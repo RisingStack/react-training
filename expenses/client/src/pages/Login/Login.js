@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import loginSchema from 'hwsw_schemas/users/login'
+import { validate } from '../../utils/validator'
 import './Login.css'
 
 export default class LoginPage extends Component {
+  validate = values => validate(loginSchema, values)
+
   render() {
-    const { login, errors } = this.props
+    const { login } = this.props
 
     return (
       <div className="login-form">
@@ -13,19 +17,23 @@ export default class LoginPage extends Component {
         <Formik
           initialValues={{ email: '', password: '' }}
           onSubmit={login}
-          validate={() => errors}
+          validate={this.validate}
         >
           {() => (
             <Form>
-              Email: <Field type="email" name="email" />
-              <ErrorMessage name="email" component="div" />
-              Password: <Field type="password" name="password" />
-              <ErrorMessage name="password" component="div" />
-              <button type="submit">Submit</button>
+              <div>
+                Email: <Field type="email" name="email" />
+                <ErrorMessage name="email" component="div" />
+              </div>
+              <div>
+                Password: <Field type="password" name="password" />
+                <ErrorMessage name="password" component="div" />
+              </div>
+              <button type="submit">Log In</button>
             </Form>
           )}
         </Formik>
-        <Link to="/register">Register</Link>
+        <Link to="/register">Register a new account</Link>
       </div>
     )
   }

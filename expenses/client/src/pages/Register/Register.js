@@ -20,17 +20,23 @@ export default class RegisterPage extends Component {
         >
           {() => (
             <Form>
-              Email: <Field type="email" name="email" />
-              <ErrorMessage name="email" component="div" />
-              Password: <Field type="password" name="password" />
-              <ErrorMessage name="password" component="div" />
-              Name: <Field name="name" />
-              <ErrorMessage name="name" component="div" />
+              <div>
+                Email: <Field type="email" name="email" />
+                <ErrorMessage name="email" component="div" />
+              </div>
+              <div>
+                Password: <Field type="password" name="password" />
+                <ErrorMessage name="password" component="div" />
+              </div>
+              <div>
+                Name: <Field name="name" />
+                <ErrorMessage name="name" component="div" />
+              </div>
               <button type="submit">Submit</button>
             </Form>
           )}
         </Formik>
-        <Link to="/">Login</Link>
+        <Link to="/">Login with an existing account</Link>
       </div>
     )
   }
