@@ -5,12 +5,16 @@ import './Login.css'
 
 export default class LoginPage extends Component {
   render() {
-    const { login } = this.props
+    const { login, errors } = this.props
 
     return (
       <div className="login-form">
         <h2>Login page</h2>
-        <Formik initialValues={{ email: '', password: '' }} onSubmit={login}>
+        <Formik
+          initialValues={{ email: '', password: '' }}
+          onSubmit={login}
+          validate={() => errors}
+        >
           {() => (
             <Form>
               Email: <Field type="email" name="email" />

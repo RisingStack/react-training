@@ -2,6 +2,12 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import { login } from '../../actions/user'
 
+function mapState(state) {
+  return {
+    errors: state.formErrors
+  }
+}
+
 function mapDispatch(dispatch) {
   return {
     login: user => dispatch(login(user))
@@ -9,6 +15,6 @@ function mapDispatch(dispatch) {
 }
 
 export default connect(
-  undefined,
+  mapState,
   mapDispatch
 )(Login)
