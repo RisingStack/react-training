@@ -9,17 +9,8 @@ export default class Navigation extends Component {
     return (
       <div className="logo-header">
         <div className="topnav">
-          <NavLink to="/" exact activeClassName="selected">
-            Home
-          </NavLink>
-          <NavLink to="/protected" activeClassName="selected">
-            Protected
-          </NavLink>
-          <NavLink to="/expenses" activeClassName="selected">
+          <NavLink to="/expenses" exact activeClassName="selected">
             Expenses
-          </NavLink>
-          <NavLink to="/expenses-sr" activeClassName="selected">
-            Expenses SR
           </NavLink>
           <button onClick={logout}>Logout</button>
         </div>

@@ -7,6 +7,7 @@ import Navigation from './components/Navigation'
 import LoginPage from './pages/Login'
 import RegisterPage from './pages/Register'
 import ExpensesPage from './pages/Expenses'
+import ExpensePage from './pages/Expense'
 import NotFound from './pages/NotFound'
 import './App.css'
 
@@ -19,6 +20,7 @@ function App({ user }) {
         {user ? (
           <Switch>
             <Route exact path="/expenses" component={ExpensesPage} />
+            <Route exact path="/expenses/:id" component={ExpensePage} />
             <Redirect exact from="/" to="/expenses" />
             <Route component={NotFound} />
           </Switch>

@@ -2,6 +2,7 @@ import * as expensesApi from '../api/expenses'
 
 export const LIST_EXPENSES = 'LIST_EXPENSES'
 export const LIST_EXPENSES_PENDING = 'LIST_EXPENSES_PENDING'
+export const GET_EXPENSE = 'GET_EXPENSE'
 
 export function listExpenses(params) {
   return async dispatch => {
@@ -9,5 +10,12 @@ export function listExpenses(params) {
 
     const { data: expenses, numOfPages: pages } = await expensesApi.list(params)
     dispatch({ type: LIST_EXPENSES, expenses, pages })
+  }
+}
+
+export function getExpense(id) {
+  return async dispatch => {
+    const expense = await expensesApi.get(id)
+    dispatch({ type: GET_EXPENSE, expense })
   }
 }

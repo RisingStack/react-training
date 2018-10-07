@@ -1,4 +1,8 @@
-import { LIST_EXPENSES, LIST_EXPENSES_PENDING } from '../actions/expenses'
+import {
+  LIST_EXPENSES,
+  LIST_EXPENSES_PENDING,
+  GET_EXPENSE
+} from '../actions/expenses'
 
 export function expenses(state = [], { type, expenses }) {
   switch (type) {
@@ -26,6 +30,15 @@ export function isExpensesLoading(state = false, { type }) {
       return true
     case LIST_EXPENSES:
       return false
+    default:
+      return state
+  }
+}
+
+export function expense(state = null, { type, expense }) {
+  switch (type) {
+    case GET_EXPENSE:
+      return expense
     default:
       return state
   }
