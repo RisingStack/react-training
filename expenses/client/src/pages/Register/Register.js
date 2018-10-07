@@ -13,7 +13,7 @@ export default class RegisterPage extends Component {
   render() {
     return (
       <div className="reg-form">
-        <h2>Register Page</h2>
+        <h2>Register</h2>
         <Formik
           initialValues={{ email: '', password: '', name: '' }}
           onSubmit={this.register}
@@ -21,22 +21,27 @@ export default class RegisterPage extends Component {
           {() => (
             <Form>
               <div>
-                Email: <Field type="email" name="email" />
+                Email: <Field type="email" name="email" autoFocus />
                 <ErrorMessage name="email" component="div" />
               </div>
               <div>
-                Password: <Field type="password" name="password" />
+                Password:{' '}
+                <Field
+                  type="password"
+                  name="password"
+                  autoComplete="current-password"
+                />
                 <ErrorMessage name="password" component="div" />
               </div>
               <div>
-                Name: <Field name="name" />
+                Name: <Field name="name" autoComplete="name" />
                 <ErrorMessage name="name" component="div" />
               </div>
-              <button type="submit">Submit</button>
+              <button type="submit">Register</button>
             </Form>
           )}
         </Formik>
-        <Link to="/">Login with an existing account</Link>
+        <Link to="/login">Login with an existing account</Link>
       </div>
     )
   }

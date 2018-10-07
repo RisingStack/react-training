@@ -6,6 +6,12 @@ import { validate } from '../../utils/validator'
 import './Login.css'
 
 export default class LoginPage extends Component {
+  login = async values => {
+    const { login, history } = this.props
+    await login(values)
+    history.replace('/')
+  }
+
   validate = values => validate(loginSchema, values)
 
   render() {
@@ -13,20 +19,31 @@ export default class LoginPage extends Component {
 
     return (
       <div className="login-form">
-        <h2>Login page</h2>
+        <h2>Login</h2>
         <Formik
           initialValues={{ email: '', password: '' }}
-          onSubmit={login}
+          onSubmit={this.login}
           validate={this.validate}
         >
           {() => (
             <Form>
               <div>
-                Email: <Field type="email" name="email" />
+                Email:{' '}
+                <Field
+                  type="email"
+                  name="email"
+                  autoFocus
+                  autoComplete="email"
+                />
                 <ErrorMessage name="email" component="div" />
               </div>
               <div>
-                Password: <Field type="password" name="password" />
+                Password:{' '}
+                <Field
+                  type="password"
+                  name="password"
+                  autoComplete="current-password"
+                />
                 <ErrorMessage name="password" component="div" />
               </div>
               <button type="submit">Log In</button>
