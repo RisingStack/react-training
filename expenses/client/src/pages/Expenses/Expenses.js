@@ -24,6 +24,16 @@ export default class ExpensesPage extends Component {
     this.props.listExpenses(query)
   }
 
+  trProps = (state, row) => {
+    const { history } = this.props
+
+    return {
+      onClick() {
+        history.push(`/expenses/${row.original._id}`)
+      }
+    }
+  }
+
   render() {
     const { expenses, pages, isLoading } = this.props
 
@@ -36,6 +46,7 @@ export default class ExpensesPage extends Component {
         pages={pages}
         loading={isLoading}
         onFetchData={this.onFetchPage}
+        getTrProps={this.trProps}
       />
     )
   }
