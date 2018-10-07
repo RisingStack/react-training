@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Route, Switch, Link, withRouter } from 'react-router-dom'
+import { Route, Switch, Link, withRouter, Redirect } from 'react-router-dom'
 import { compose } from 'recompose'
 import LoadingBar from 'react-redux-loading-bar'
 import { connect } from 'react-redux'
@@ -18,13 +18,15 @@ function App({ user }) {
       <div className="wrapper">
         {user ? (
           <Switch>
-            <Route exact path="/" component={ExpensesPage} />
+            <Route exact path="/expenses" component={ExpensesPage} />
+            <Redirect exact from="/" to="/expenses" />
             <Route component={NotFound} />
           </Switch>
         ) : (
           <Switch>
             <Route exact path="/register" component={RegisterPage} />
-            <Route path="/" component={LoginPage} />
+            <Route path="/login" component={LoginPage} />
+            <Redirect to="/login" />
           </Switch>
         )}
       </div>
