@@ -1,14 +1,10 @@
-import {
-  LIST_EXPENSES,
-  LIST_EXPENSES_PENDING,
-  GET_EXPENSE
-} from '../actions/expenses'
+import { INIT_EXPENSES, LIST_EXPENSES, GET_EXPENSE } from '../actions/expenses'
 
 export function expenses(state = [], { type, expenses }) {
   switch (type) {
     case LIST_EXPENSES:
       return expenses
-    case LIST_EXPENSES_PENDING:
+    case INIT_EXPENSES:
       return []
     default:
       return state
@@ -19,17 +15,6 @@ export function expensesPages(state = -1, { type, pages }) {
   switch (type) {
     case LIST_EXPENSES:
       return pages
-    default:
-      return state
-  }
-}
-
-export function isExpensesLoading(state = false, { type }) {
-  switch (type) {
-    case LIST_EXPENSES_PENDING:
-      return true
-    case LIST_EXPENSES:
-      return false
     default:
       return state
   }

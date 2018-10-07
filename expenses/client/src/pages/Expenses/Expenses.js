@@ -35,6 +35,8 @@ export default class ExpensesPage extends Component {
     }
     this.startingPageSize = Number(query.pageSize) || 20
     this.startingPage = Number(query.page) || 0
+
+    props.init()
   }
 
   onFetchPage = ({ page, pageSize, sorted, filtered }) => {
@@ -67,7 +69,7 @@ export default class ExpensesPage extends Component {
   }
 
   render() {
-    const { expenses, pages, isLoading } = this.props
+    const { expenses, pages } = this.props
 
     return (
       <Table
@@ -79,7 +81,6 @@ export default class ExpensesPage extends Component {
         defaultFiltered={this.startingFiltered}
         defaultSorted={this.startingSorted}
         pages={pages}
-        loading={isLoading}
         onFetchData={this.onFetchPage}
         getTrProps={this.trProps}
       />
