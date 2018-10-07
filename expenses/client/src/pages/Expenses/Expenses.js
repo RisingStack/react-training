@@ -4,13 +4,20 @@ import 'react-table/react-table.css'
 
 const columns = [
   { Header: 'Title', accessor: 'title' },
-  { Header: 'Amount', accessor: 'amount' },
-  { Header: 'Currency', accessor: 'currency' }
+  { Header: 'Amount', accessor: 'amount' }
 ]
 
 export default class ExpensesPage extends Component {
   onFetchPage = ({ page, pageSize, sorted, filtered }) => {
-    this.props.listExpenses({ page, pageSize })
+    const query = { page, pageSize }
+
+    const mainSort = sorted[0]
+    if (mainSort) {
+      query.sortBy = mainSort.id
+      query.order = mainSort.desc ? -1 : 1
+    }
+
+    this.props.listExpenses(query)
   }
 
   render() {
