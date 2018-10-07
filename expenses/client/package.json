@@ -20,7 +20,8 @@
     "recompose": "^0.30.0",
     "redux": "^4.0.0",
     "redux-form": "^7.4.2",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "rs-training-schemas": "^0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

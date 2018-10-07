@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import loginSchema from 'hwsw_schemas/users/login'
+import loginSchema from 'rs-training-schemas/users/login'
 import { validate } from '../../utils/validator'
 import './Login.css'
 
