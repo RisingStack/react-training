@@ -4,7 +4,9 @@ import { listExpenses } from '../../actions/expenses'
 
 function mapState(state) {
   return {
-    expenses: state.expenses
+    expenses: state.expenses,
+    pages: state.expensePages,
+    isLoading: state.isExpensesLoading
   }
 }
 
