@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
 
 export default class ExpensePage extends Component {
-  constructor(props) {
-    super(props)
-
-    props.init()
-  }
-
   componentDidMount() {
     const { getExpense, match } = this.props
     getExpense(match.params.id)

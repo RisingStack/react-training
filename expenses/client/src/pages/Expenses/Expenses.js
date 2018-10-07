@@ -35,8 +35,10 @@ export default class ExpensesPage extends Component {
     }
     this.startingPageSize = Number(query.pageSize) || 20
     this.startingPage = Number(query.page) || 0
+  }
 
-    props.init()
+  componentDidMount() {
+    this.props.init()
   }
 
   onFetchPage = ({ page, pageSize, sorted, filtered }) => {

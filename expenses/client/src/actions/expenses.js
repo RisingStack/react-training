@@ -2,6 +2,7 @@ import * as expensesApi from '../api/expenses'
 
 export const INIT_EXPENSES = 'INIT_EXPENSES'
 export const LIST_EXPENSES = 'LIST_EXPENSES'
+export const INIT_EXPENSE = 'INIT_EXPENSE'
 export const GET_EXPENSE = 'GET_EXPENSE'
 
 export function initExpenses() {
@@ -17,6 +18,8 @@ export function listExpenses(query) {
 
 export function getExpense(id) {
   return async dispatch => {
+    dispatch({ type: INIT_EXPENSE })
+
     const expense = await expensesApi.get(id)
     dispatch({ type: GET_EXPENSE, expense })
   }

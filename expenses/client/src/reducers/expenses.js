@@ -1,4 +1,9 @@
-import { INIT_EXPENSES, LIST_EXPENSES, GET_EXPENSE } from '../actions/expenses'
+import {
+  INIT_EXPENSES,
+  LIST_EXPENSES,
+  INIT_EXPENSE,
+  GET_EXPENSE
+} from '../actions/expenses'
 
 export function expenses(state = [], { type, expenses }) {
   switch (type) {
@@ -22,6 +27,8 @@ export function expensesPages(state = -1, { type, pages }) {
 
 export function expense(state = null, { type, expense }) {
   switch (type) {
+    case INIT_EXPENSE:
+      return null
     case GET_EXPENSE:
       return expense
     default:
