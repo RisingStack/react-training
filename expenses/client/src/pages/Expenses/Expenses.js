@@ -3,7 +3,7 @@ import Table from 'react-table'
 import 'react-table/react-table.css'
 
 const columns = [
-  { Header: 'Title', accessor: 'title' },
+  { Header: 'Title', accessor: 'title', filterable: true },
   { Header: 'Amount', accessor: 'amount' }
 ]
 
@@ -16,6 +16,10 @@ export default class ExpensesPage extends Component {
       query.sortBy = mainSort.id
       query.order = mainSort.desc ? -1 : 1
     }
+
+    filtered.forEach(filter => {
+      query[filter.id] = filter.value
+    })
 
     this.props.listExpenses(query)
   }
