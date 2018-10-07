@@ -5,14 +5,14 @@ import { listExpenses } from '../../actions/expenses'
 function mapState(state) {
   return {
     expenses: state.expenses,
-    pages: state.expensePages,
+    pages: state.expensesPages,
     isLoading: state.isExpensesLoading
   }
 }
 
 function mapDispatch(dispatch) {
   return {
-    listExpenses: params => dispatch(listExpenses(params))
+    listExpenses: query => dispatch(listExpenses(query))
   }
 }
 

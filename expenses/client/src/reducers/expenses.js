@@ -15,7 +15,7 @@ export function expenses(state = [], { type, expenses }) {
   }
 }
 
-export function expensePages(state = -1, { type, pages }) {
+export function expensesPages(state = -1, { type, pages }) {
   switch (type) {
     case LIST_EXPENSES:
       return pages

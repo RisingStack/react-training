@@ -4,12 +4,12 @@ export const LIST_EXPENSES = 'LIST_EXPENSES'
 export const LIST_EXPENSES_PENDING = 'LIST_EXPENSES_PENDING'
 export const GET_EXPENSE = 'GET_EXPENSE'
 
-export function listExpenses(params) {
+export function listExpenses(query) {
   return async dispatch => {
     dispatch({ type: LIST_EXPENSES_PENDING })
 
-    const { data: expenses, numOfPages: pages } = await expensesApi.list(params)
-    dispatch({ type: LIST_EXPENSES, expenses, pages })
+    const { data: expenses, numOfPages: pages } = await expensesApi.list(query)
+    dispatch({ type: LIST_EXPENSES, expenses, pages, query })
   }
 }
 

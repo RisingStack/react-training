@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import queryString from 'query-string'
 import Table from 'react-table'
 import 'react-table/react-table.css'
 
@@ -7,8 +8,38 @@ const columns = [
   { Header: 'Amount', accessor: 'amount' }
 ]
 
+const filtered = [
+  {
+    id: 'title'
+  }
+]
+
 export default class ExpensesPage extends Component {
+  constructor(props) {
+    super(props)
+
+    const query = queryString.parse(props.location.search)
+    this.startingFiltered = [
+      {
+        id: 'title',
+        value: query.title
+      }
+    ]
+    if (query.sortBy) {
+      this.startingSorted = [
+        {
+          id: query.sortBy,
+          desc: Number(query.order) === -1
+        }
+      ]
+    }
+    this.startingPageSize = Number(query.pageSize) || 20
+    this.startingPage = Number(query.page) || 0
+  }
+
   onFetchPage = ({ page, pageSize, sorted, filtered }) => {
+    const { history, listExpenses } = this.props
+
     const query = { page, pageSize }
 
     const mainSort = sorted[0]
@@ -21,7 +52,8 @@ export default class ExpensesPage extends Component {
       query[filter.id] = filter.value
     })
 
-    this.props.listExpenses(query)
+    history.replace(`?${queryString.stringify(query)}`)
+    listExpenses(query)
   }
 
   trProps = (state, row) => {
@@ -42,7 +74,10 @@ export default class ExpensesPage extends Component {
         manual
         data={expenses}
         columns={columns}
-        pageSize={20}
+        defaultPageSize={this.startingPageSize}
+        defaultPage={this.startingPage}
+        defaultFiltered={this.startingFiltered}
+        defaultSorted={this.startingSorted}
         pages={pages}
         loading={isLoading}
         onFetchData={this.onFetchPage}
