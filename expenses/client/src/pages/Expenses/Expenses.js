@@ -18,6 +18,10 @@ export default class ExpensesPage extends Component {
   constructor(props) {
     super(props)
 
+    // react-router-dom does not support query parameter parsing
+    // so we have to do it by hand
+    // it is important to save all primitive user input (which defines the data flow)
+    // in the query parameters to be able to restore the data on page reload or url share
     const query = queryString.parse(props.location.search)
     this.startingFiltered = [
       {
