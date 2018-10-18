@@ -1,3 +1,7 @@
+// this is a none react specific validator
+// it validates data based on standard JSON schemas
+// the same schema can be reused for client forms and server endpoints
+
 const Ajv = require('ajv')
 const addCustomErrors = require('ajv-errors')
 

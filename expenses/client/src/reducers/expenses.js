@@ -5,6 +5,10 @@ import {
   GET_EXPENSE
 } from '../actions/expenses'
 
+// reducers should be pure functions with zero side effects
+
+// never forget to add a default case and a default value (in the argument list)
+// for reducers
 export function expenses(state = [], { type, expenses }) {
   switch (type) {
     case LIST_EXPENSES:
